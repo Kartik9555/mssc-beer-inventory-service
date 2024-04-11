@@ -5,14 +5,13 @@ import com.example.practice.beer.inventory.service.repositories.BeerInventoryRep
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
 @Slf4j
 @RequiredArgsConstructor
-@Component
-public class BeerInvntoryBootstrap implements CommandLineRunner {
+//@Component
+public class BeerInventoryBootstrap implements CommandLineRunner {
     public static final String BEER_1_UPC = "0631234200036";
     public static final String BEER_2_UPC = "0631234300019";
     public static final String BEER_3_UPC = "0083783375213";
@@ -48,9 +47,9 @@ public class BeerInvntoryBootstrap implements CommandLineRunner {
                 .builder()
                 .beerId(BEER_3_UUID)
                 .upc(BEER_3_UPC)
-                .quantityOnHand(50)
+                .quantityOnHand(10)
                 .build());
 
-        log.debug("Loaded Inventory. Record count: " + beerInventoryRepository.count());
+        log.debug("Loaded Inventory. Record count: {}", beerInventoryRepository.count());
     }
 }
